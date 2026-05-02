@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Guide</title>
-    <!-- <link rel="stylesheet" href="style1.css">   -->
-         
+    <title>Setup Guide</title>          
 </head>
 <body>
-    <div class = "container"></div>
+    <div class = "container">
+        <p>what is the fuck</p>
+    </div>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 
     <!-- React DOM -->
@@ -17,132 +17,22 @@
     <!-- Babel (for JSX support in browser) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<script type="text/babel">
-    
+    <script type="text/babel">
+        // Your React code can go here
+       const div = <div>
+            <h1>Setup Guide</h1>
+            <p>Follow the instructions below to set up your environment:</p>
+            <ol>
+                <li>Install Node.js from the official website.</li>
+                <li>Clone the repository from GitHub.</li>
+                <li>Run <code>npm install</code> to install dependencies.</li>
+                <li>Start the development server with <code>npm start {2+2}</code>.</li>
+            </ol>
+        </div>
 
-    function ChatInput() {
-        
-        
-        const [inputText, setInputText] = React.useState('');
-        
-        
-        function saveInputText(event){
-           
-           setInputText(event.target.value);
-        }
-
-        function SentMessage(){
-
-            setChatMessages([
-                ...ChatMessages, {
-                message: "This is a new message",
-                sender: "user",
-                key: crypto.randomUUID()
-            }]);
-        }
-
-        return (
-            <div className="input-area">
-                <input placeholder="Type your message..." 
-                       size = "30"
-                       onChange={saveInputText}
-                />
-                <button onClick={() =>SentMessage()}>Send
-                </button>
-            </div>
-        );
-    }
-
-
-
-    function ChatMessage({ message, sender }) {
-        return (
-            <div className={`message ${sender}`}>
-                {sender === "bot" && (
-                    <img src="bot.png" width="50" height="50"  alt="Bot" />
-                )}
-
-                <span>{message}</span>
-
-                {sender === "user" && (
-                    <img src="user.png" width="50" height="50" alt="User" />
-                )}
-            </div>
-        );
-    }
-
-
-    function ChatArea(){
-
-
-
-
-
-    
-        
-        return (
-            <div className="chat-area">
-                   
-                    {ChatMessages.map((msg) => {
-                        return (
-                            <ChatMessage
-                                key={msg.key}
-                                message={msg.message}
-                                sender={msg.sender}
-                            />
-                        );
-                    })}
-            </div>
-        );
-
-
-    }
-
-
-
-    function App() {
-
-
-        //this update the state of the chat messages and re-render the component when a new message is sent       
-        const array = React.useState([
-
-            { message: "Hello, how can I help you?", 
-                sender: "user",
-                key: "id1"
-            },
-            { message: "What is your name?", 
-            sender:"bot",
-                key: "id2"
-            },
-            { message: "what the hell?",
-                 sender: "user",
-                key: "id3"
-           },
-            { message: "What is your name???", 
-                sender: "bot",
-                key: "id4"
-            },
-            { message: "my name is John", 
-                sender: "user",
-                key: "id5"
-             }
-        ]);
-        //const chatMessages , setChatMessages = array;
-        const ChatMessages = array[0];
-        const setChatMessages = array[1];
-        
-
-        return (
-            <>
-                <ChatArea />
-                <ChatInput chatMessage/>
-            </>
-        );
-    }
-
-    const container = document.querySelector('.container');
-    ReactDOM.createRoot(container).render(<App />);
-</script>
+        const container = document.querySelector('.container');
+        ReactDOM.createRoot(container).render(div);
+    </script>
 
 </body>
 </html>
