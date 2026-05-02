@@ -33,7 +33,6 @@
 
         function SentMessage(){
 
-
             setChatMessages([
                 ...ChatMessages, {
                 message: "This is a new message",
@@ -105,18 +104,12 @@
 
 
 
-        function SentMessage(){
-            
-            
 
-            console.log(ChatMessages);
-
-       }
+    
         
         return (
             <div className="chat-area">
-                    <button onClick={SentMessage}>message sentS
-                </button>
+                   
                     {ChatMessages.map((msg) => {
                         return (
                             <ChatMessage
