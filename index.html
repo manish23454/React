@@ -74,33 +74,6 @@
 
     function ChatArea(){
 
-        //this update the state of the chat messages and re-render the component when a new message is sent       
-        const array = React.useState([
-
-            { message: "Hello, how can I help you?", 
-                sender: "user",
-                key: "id1"
-            },
-            { message: "What is your name?", 
-            sender:"bot",
-                key: "id2"
-            },
-            { message: "what the hell?",
-                 sender: "user",
-                key: "id3"
-           },
-            { message: "What is your name???", 
-                sender: "bot",
-                key: "id4"
-            },
-            { message: "my name is John", 
-                sender: "user",
-                key: "id5"
-             }
-        ]);
-        //const chatMessages , setChatMessages = array;
-        const ChatMessages = array[0];
-        const setChatMessages = array[1];
 
 
 
@@ -128,12 +101,41 @@
 
 
     function App() {
+
+
+        //this update the state of the chat messages and re-render the component when a new message is sent       
+        const array = React.useState([
+
+            { message: "Hello, how can I help you?", 
+                sender: "user",
+                key: "id1"
+            },
+            { message: "What is your name?", 
+            sender:"bot",
+                key: "id2"
+            },
+            { message: "what the hell?",
+                 sender: "user",
+                key: "id3"
+           },
+            { message: "What is your name???", 
+                sender: "bot",
+                key: "id4"
+            },
+            { message: "my name is John", 
+                sender: "user",
+                key: "id5"
+             }
+        ]);
+        //const chatMessages , setChatMessages = array;
+        const ChatMessages = array[0];
+        const setChatMessages = array[1];
         
 
         return (
             <>
                 <ChatArea />
-                <ChatInput />
+                <ChatInput chatMessage/>
             </>
         );
     }
