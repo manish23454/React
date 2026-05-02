@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0>
+</head>
+<body>
+    <div class = "app"></div>
+  <div class = "container"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel (for JSX support in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Message({ message, sender }) {
+            return (
+                <div className={`message ${sender}`}>
+                    {sender === "bot" && (
+                        <img src="bot.png" width="50" height="50" alt="Bot" />
+                    )}
+
+                    <span>{message}</span>
+
+                    {sender === "user" && (
+                        <img src="user.png" width="50" height="50" alt="User" />
+                    )}
+                </div>
+            );
+        }
+        function Input() {
+            return (
+                <div className="input-area">
+                    <input placeholder="Type your message..." />
+                    <button>Send</button>
+                    <button>send</button>
+                </div>
+            );
+        }
+        // Your React code can go here
+        function App(){
+
+           return (<div>
+               <Message message = "Hello, how can I help you?" sender = "user"/>
+                <Message message = "What is your name?" sender = "bot"/>
+                <Message message = "what the hell?" sender = "user"/>
+                <Message message = "What is your name???" sender = "bot"/>
+                <Input />
+                
+            </div>)
+        }
+    
+          
+       const container = document.querySelector('.container');
+    ReactDOM.createRoot(container).render(<App />);
+</script>
+</body>
+</html>

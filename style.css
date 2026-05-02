@@ -1,0 +1,65 @@
+/* Chat container scroll style */
+.container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Messages spacing */
+.container > div {
+    display: flex;
+    align-items: center;
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin: 8px 0;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Bot messages (left) */
+.container > div:nth-child(odd) {
+    align-self: flex-start;
+    background: #334155;
+    border-top-left-radius: 0;
+}
+
+/* User messages (right) */
+.container > div:nth-child(even) {
+    align-self: flex-end;
+    background: #3b82f6;
+    border-top-right-radius: 0;
+}
+
+/* Images inside messages */
+.container img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Input section fixed at bottom */
+.container input,
+.container button {
+    position: sticky;
+    bottom: 0;
+}
+
+.container input {
+    width: 70%;
+    margin-top: auto;
+}
+
+.container button {
+    width: 25%;
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide</title>
+    <!-- <link rel="stylesheet" href="style1.css">   -->
+         
+</head>
+<body>
+    <div class = "container"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel (for JSX support in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    
+
+    function ChatInput() {
+        
+        
+        const [inputText, setInputText] = React.useState('');
+        
+        
+        function saveInputText(event){
+           
+           setInputText(event.target.value);
+        }
+
+        function SentMessage(){
+
+
+            setChatMessages([
+                ...ChatMessages, {
+                message: "This is a new message",
+                sender: "user",
+                key: crypto.randomUUID()
+            }]);
+        }
+
+        return (
+            <div className="input-area">
+                <input placeholder="Type your message..." 
+                       size = "30"
+                       onChange={saveInputText}
+                />
+                <button onClick={() =>SentMessage()}>Send
+                </button>
+            </div>
+        );
+    }
+
+
+
+    function ChatMessage({ message, sender }) {
+        return (
+            <div className={`message ${sender}`}>
+                {sender === "bot" && (
+                    <img src="bot.png" width="50" height="50"  alt="Bot" />
+                )}
+
+                <span>{message}</span>
+
+                {sender === "user" && (
+                    <img src="user.png" width="50" height="50" alt="User" />
+                )}
+            </div>
+        );
+    }
+
+
+    function ChatArea(){
+
+        //this update the state of the chat messages and re-render the component when a new message is sent       
+        const array = React.useState([
+
+            { message: "Hello, how can I help you?", 
+                sender: "user",
+                key: "id1"
+            },
+            { message: "What is your name?", 
+            sender:"bot",
+                key: "id2"
+            },
+            { message: "what the hell?",
+                 sender: "user",
+                key: "id3"
+           },
+            { message: "What is your name???", 
+                sender: "bot",
+                key: "id4"
+            },
+            { message: "my name is John", 
+                sender: "user",
+                key: "id5"
+             }
+        ]);
+        //const chatMessages , setChatMessages = array;
+        const ChatMessages = array[0];
+        const setChatMessages = array[1];
+
+
+
+        function SentMessage(){
+            
+            
+
+            console.log(ChatMessages);
+
+       }
+        
+        return (
+            <div className="chat-area">
+                    <button onClick={SentMessage}>message sentS
+                </button>
+                    {ChatMessages.map((msg) => {
+                        return (
+                            <ChatMessage
+                                key={msg.key}
+                                message={msg.message}
+                                sender={msg.sender}
+                            />
+                        );
+                    })}
+            </div>
+        );
+
+
+    }
+
+
+
+    function App() {
+        
+
+        return (
+            <>
+                <ChatArea />
+                <ChatInput />
+            </>
+        );
+    }
+
+    const container = document.querySelector('.container');
+    ReactDOM.createRoot(container).render(<App />);
+</script>
+
+</body>
+</html>
