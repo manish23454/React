@@ -3,33 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Guide</title>          
+    <title>Setup Guide</title>
+
+    <style>
+        .container{
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .heading{
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <div class = "container">
-        <h1><center>loding......</center></h1>
+
+    <div class="container">
+        <h1 class="heading">Loading...</h1>
     </div>
+
+    <!-- React -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 
     <!-- React DOM -->
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-    <!-- Babel (for JSX support in browser) -->
+    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-        // Your React code can go here
-       const div = <div>
-            <h1>Setup Guide</h1>
-            <p>Follow the instructions below to set up your environment:</p>
-            <ol>
-                <li>Installl dependencies.</li>
-                <li>Start the development server with <code>npm start {2+2}</code>.</li>
-            </ol>
-        </div>
+
+        const div = (
+            <div>
+                <h1>Setup Guide</h1>
+
+                <p>
+                    Follow the instructions below to set up your environment:
+                </p>
+
+                <ol>
+                    <li>Install dependencies.</li>
+
+                    <li>
+                        Start the development server with
+                        <code> npm start {2 + 2}</code>
+                    </li>
+                </ol>
+            </div>
+        );
 
         const container = document.querySelector('.container');
+
         ReactDOM.createRoot(container).render(div);
+
     </script>
 
 </body>
